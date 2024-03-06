@@ -11,7 +11,7 @@ from art.forms import CreationForm, TeachtForm, ExhibitionForm, RegisterExhibiti
 
 
 
-def art_view(request, **kwargs):
+def art_view(request):
     creations = Creation.objects.all()
     teach = Teaching.objects.all()
     exhibition = Exhibition.objects.all()
@@ -24,7 +24,15 @@ def art_view(request, **kwargs):
         'registeredexh' : registeredexh,
         }
     return render(request, 'art/art-home.html', context)
-    
+
+def art_creation(request):
+    form = CreationForm()
+         
+    context = {
+        'form' : form,
+        }
+    return render(request, 'art/art-creation.html', context)
+
 def art_teach(request):
     form = TeachtForm()
          

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'art.apps.ArtConfig',
     'allauth',
     'allauth.account',
+    'captcha',
 ]
 
 MIDDLEWARE = [

@@ -29,7 +29,7 @@ class Creation(models.Model):
         return self.title
     
 class Exhibition(models.Model):
-    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length = 255)
     category = models.ManyToManyField(Category)
     proved = models.BooleanField(default=False)
@@ -45,7 +45,7 @@ class Exhibition(models.Model):
         return self.name
     
 class Teaching(models.Model):
-    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length = 255)
     subject = models.CharField(max_length = 255)
     category = models.ManyToManyField(Category)
@@ -62,7 +62,7 @@ class Teaching(models.Model):
         return self.name
     
 class RegisterExhibition(models.Model):
-    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)

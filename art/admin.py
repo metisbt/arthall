@@ -5,7 +5,7 @@ from art.models import Category, Creation, Exhibition, Teaching, RegisterExhibit
 class CreationAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_display = '-empty-'
-    list_display = ('title', 'author', 'counted_view', 'status', 'login_require', 'published_date', 'created_date')
+    list_display = ('title', 'author', 'status', 'published_date', 'created_date')
     list_filter = ('status','author')
     search_fields = ['title', 'content']
 
