@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'art.apps.ArtConfig',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# allauth
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = "/"
+
+AUTHENTICATION_BACKENDS = ['core.backends.EmailThenUsernameModelBackend']
