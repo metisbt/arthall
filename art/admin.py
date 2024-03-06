@@ -13,7 +13,7 @@ class CreationAdmin(admin.ModelAdmin):
 class ExhibitionAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_display = '-empty-'
-    list_display = ('name', 'category', 'proved', 'date', 'created_date', 'updated_date')
+    list_display = ('name', 'proved', 'date', 'created_date', 'updated_date')
     list_filter = ('name','category', 'proved', 'date')
     search_fields = ['name', 'proved', 'date']
 
@@ -21,7 +21,7 @@ class ExhibitionAdmin(admin.ModelAdmin):
 class TeachingAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_display = '-empty-'
-    list_display = ('name', 'category', 'subject', 'proved', 'date', 'created_date', 'updated_date')
+    list_display = ('name', 'subject', 'proved', 'date', 'created_date', 'updated_date')
     list_filter = ('name','category', 'proved', 'date')
     search_fields = ['name', 'proved', 'date']
 
