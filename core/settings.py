@@ -146,3 +146,16 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTHENTICATION_BACKENDS = ['core.backends.EmailThenUsernameModelBackend']
+
+# SMTP
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST ='smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USER_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'msabet0223@gmail.com'
+# EMAIL_HOST_PASSWORD = '1401@mahdI'
+# DEFAULT_FORM_EMAIL = EMAIL_HOST_USER
+
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
