@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg">
+          <div class="card">
+            <div class="card-header">Exhibition</div>
+            <div class="card-body">
+              <div class="card-title">
+                <h3 class="text-center title-2">Exhibition details</h3>
+              </div>
+              <hr />
+              <form action="{% url 'art:exhibition' %}" method="post">
+                {{ form.non_field_errors | safe }} {% csrf_token %} 
+                <div class="form-group">
+                  <input
+                    name="author"
+                    type="hidden"
+                    class="form-control"
+                    value="{{request.user.id}}"
+                  />
+                  <label class="control-label mb-1">Exhibition name</label>
+                  {{form.name}}
+                  {{ form.name.errors|safe }}
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="control-label mb-1"
+                        >Category</label
+                      >
+                      {{form.category}}
+                      {{ form.category.errors|safe }}
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label class="control-label mb-1"
+                      >Date</label
+                    >
+                    <div class="input-group">
+                      {{form.date}}
+                      {{ form.date.errors|safe }}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  {{form.captcha}}
+                  <br />
+                  <button
+                    type="submit"
+                    class="btn btn-lg btn-info btn-block"
+                  >
+                  Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright">
+            <p>
+              Copyright © 2018 Colorlib. All rights reserved. Template by
+              <a href="https://colorlib.com">Colorlib</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

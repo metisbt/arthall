@@ -12,56 +12,83 @@ from art.forms import CreationForm, TeachtForm, ExhibitionForm, RegisterExhibiti
 
 
 def art_view(request):
-    creations = Creation.objects.all()
-    teach = Teaching.objects.all()
-    exhibition = Exhibition.objects.all()
-    registeredexh = RegisterExhibition.objects.all()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('account_login'))
+    else:
+        creations = Creation.objects.all()
+        teaching = Teaching.objects.all()
+        exhibition = Exhibition.objects.all()
+        registeredexh = RegisterExhibition.objects.all()
 
-    context = {
-        'creations' : creations,
-        'teach' : teach,
-        'exhibition' : exhibition,
-        'registeredexh' : registeredexh,
-        }
-    return render(request, 'art/art-home.html', context)
+        context = {
+            'creations' : creations,
+            'teaching' : teaching,
+            'exhibition' : exhibition,
+            'registeredexh' : registeredexh,
+            }
+        return render(request, 'art/art-home.html', context)
 
 def art_creation(request):
-    form = CreationForm()
-         
-    context = {
-        'form' : form,
-        }
-    return render(request, 'art/art-creation.html', context)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('accounts_login'))
+    else:
+        if request.method == 'POST':
+            form = CreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        form = CreationForm()
+            
+        context = {
+            'form' : form,
+            }
+        return render(request, 'art/art-creation.html', context)
 
 def art_teach(request):
-    form = TeachtForm()
-         
-    context = {
-        'form' : form,
-        }
-    return render(request, 'art/art-teach.html', context)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('accounts_login'))
+    else:
+        if request.method == 'POST':
+            form = TeachtForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        form = TeachtForm()
+            
+        context = {
+            'form' : form,
+            }
+        return render(request, 'art/art-teach.html', context)
 
 def art_exhibition(request):
-    form = ExhibitionForm()
-         
-    context = {
-        'form' : form,
-        }
-    return render(request, 'art/art-exh.html', context)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('accounts_login'))
+    else:
+        if request.method == 'POST':
+            form = ExhibitionForm(request.POST)
+            if form.is_valid():
+                form.save()
+
+        form = ExhibitionForm()
+            
+        context = {
+            'form' : form,
+            }
+        return render(request, 'art/art-exh.html', context)
 
 def art_registerexhibition(request):
-    form = RegisterExhibitionForm()
-         
-    context = {
-        'form' : form,
-        }
-    return render(request, 'art/art-rgexh.html', context)
-        
-def art_search(request):
-    creations = Creation.objects.filter(status=1)
-    if request.method == 'GET':
-        if s:= request.GET.get('s'):
-            creations= creations.filter(content__contains=s)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('accounts_login'))
+    else:
+        if request.method == 'POST':
+            form = RegisterExhibitionForm(request.POST)
+            if form.is_valid():
+                form.save()
 
-    context = {'creations' : creations}
-    return render(request, 'art/art-home.html', context)
+        form = RegisterExhibitionForm()
+            
+        context = {
+            'form' : form,
+            }
+        return render(request, 'art/art-rgexh.html', context)
+        
