@@ -69,6 +69,3 @@ class RegisterExhibition(models.Model):
     class Meta:
 
         ordering = ['-created_date']
-
-    def __str__ (self):
-        return self.name.name

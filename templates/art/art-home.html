@@ -20,7 +20,6 @@
                 <tr>
                   <th>title</th>
                   <th >author</th>
-                  <th >category</th>
                   <th >proved</th>
                   <th >updated</th>
                 </tr>
@@ -29,10 +28,7 @@
                 {% for creation in creations %}
                 <tr>
                   <td>{{creation.title}}</td>
-                  <td>{{creation.author}}</td>
-                  {% for cat in creation.category.all %}
-                  <td >{{cat.name}}</td>
-                  {% endfor %}
+                  <td >{{creation.author}}</td>
                   <td >{{creation.status}}</td>
                   <td >{{creation.updated_date|date:"d M Y"}}</td>
                 </tr>
@@ -53,7 +49,6 @@
                   <th>name</th>
                   <th>date</th>
                   <th >author</th>
-                  <th >category</th>
                   <th >proved</th>
                   <th >updated</th>
                 </tr>
@@ -64,9 +59,6 @@
                   <td>{{exh.name}}</td>
                   <td>{{exh.date}}</td>
                   <td>{{exh.author}}</td>
-                  {% for cat in exh.category.all %}
-                  <td >{{cat.name}}</td>
-                  {% endfor %}
                   <td >{{exh.proved}}</td>
                   <td >{{exh.updated_date|date:"d M Y"}}</td>
                 </tr>
@@ -88,7 +80,6 @@
                   <th>date</th>
                   <th>subject</th>
                   <th >author</th>
-                  <th >category</th>
                   <th >proved</th>
                   <th >updated</th>
                 </tr>
@@ -100,9 +91,6 @@
                   <td>{{teach.date}}</td>
                   <td>{{teach.subject}}</td>
                   <td>{{teach.author}}</td>
-                  {% for cat in teach.category.all %}
-                  <td >{{cat.name}}</td>
-                  {% endfor %}
                   <td >{{teach.proved}}</td>
                   <td >{{teach.updated_date|date:"d M Y"}}</td>
                 </tr>

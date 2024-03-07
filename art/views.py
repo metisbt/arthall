@@ -30,7 +30,7 @@ def art_view(request):
 
 def art_creation(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('accounts_login'))
+        return HttpResponseRedirect(reverse('account_login'))
     else:
         if request.method == 'POST':
             form = CreationForm(request.POST)
@@ -46,7 +46,7 @@ def art_creation(request):
 
 def art_teach(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('accounts_login'))
+        return HttpResponseRedirect(reverse('account_login'))
     else:
         if request.method == 'POST':
             form = TeachtForm(request.POST)
@@ -62,7 +62,7 @@ def art_teach(request):
 
 def art_exhibition(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('accounts_login'))
+        return HttpResponseRedirect(reverse('account_login'))
     else:
         if request.method == 'POST':
             form = ExhibitionForm(request.POST)
@@ -78,7 +78,7 @@ def art_exhibition(request):
 
 def art_registerexhibition(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('accounts_login'))
+        return HttpResponseRedirect(reverse('account_login'))
     else:
         if request.method == 'POST':
             form = RegisterExhibitionForm(request.POST)
